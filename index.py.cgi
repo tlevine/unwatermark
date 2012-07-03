@@ -2,7 +2,7 @@
 import os
 
 dir='/home/public'
-for file in os.listdir(dir):
+for filename in os.listdir(dir):
   old = open(os.path.join(dir, filename), 'r')
   oldcontents = old.read()
   old.close()
