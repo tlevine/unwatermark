@@ -1,5 +1,5 @@
 <?php
-shell_exec("
+shell_exec('
   d=$(mktemp -d)
   for file in /home/public/index.html
     do
@@ -7,6 +7,6 @@ shell_exec("
     cat "$d/$file" > "$file"
   done
   rm -R "$d"
-);
+');
 echo 'The watermarks have been removed.';
 ?>
