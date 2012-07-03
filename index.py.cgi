@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 
 dir='/home/public'
