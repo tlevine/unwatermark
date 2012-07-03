@@ -6,14 +6,12 @@ dir='/home/public'
 print '<p>Watermarks have been removed from these files:</p><ul>'
 for filename in os.listdir(dir):
   # Check that it's an HTML file
-  print filename
   if filename.split('.')[-1] != 'html':
     continue
 
   old = open(os.path.join(dir, filename), 'r')
-  oldcontents = old.read()
+  lines = old.readlines()
   old.close()
-  lines = oldcontents.split('\n')
 
   if len(lines) < 3 or not 'This file is not intended to be viewed directly using a web browser.' in lines[-3]:
     continue
