@@ -3,6 +3,8 @@ import os
 
 dir='/home/public'
 for filename in os.listdir(dir):
+  if filename.split('.')[-1] != 'html':
+    continue
   old = open(os.path.join(dir, filename), 'r')
   oldcontents = old.read()
   old.close()
