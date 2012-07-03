@@ -1,6 +1,6 @@
 import os
 
-dir=os.path.join('home', 'public')
+dir='/home/public'
 for file in os.listdir(dir):
   old = open(os.path.join(dir, filename), 'r')
   oldcontents = old.read()
