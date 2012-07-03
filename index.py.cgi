@@ -4,7 +4,7 @@ import os
 dir='/home/public'
 
 print '<p>Watermarks have been removed from these files:</p><ul>'
-for filename in os.listdir(dir)[:4]:
+for filename in os.listdir(dir):
   # Check that it's an HTML file
   if filename.split('.')[-1] != 'html':
     continue
