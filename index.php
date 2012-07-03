@@ -1,5 +1,12 @@
 <?php
-$out=shell_exec("sed -i '/font color=black.This file is not intended to be viewed directly using a web browser/d' ../*.html");
-echo $out;
+shell_exec("
+  d=$(mktemp -d)
+  for file in /home/public/index.html
+    do
+    cat "$file" | tail -r | sed 3d | tail -r > "$d/$file"
+    cat "$d/$file" > "$file"
+  done
+  rm -R "$d"
+);
 echo 'The watermarks have been removed.';
 ?>
