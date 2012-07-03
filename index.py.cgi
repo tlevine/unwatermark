@@ -14,8 +14,7 @@ for filename in os.listdir(dir)[:4]:
   old.close()
   lines = oldcontents.split('\n')
 
-  # Check that the third-to-last line is the watermark.
-  if not 'This file is not intended to be viewed directly using a web browser.' in lines[-3]:
+  if len(lines) < 3 or not 'This file is not intended to be viewed directly using a web browser.' in lines[-3]:
     continue
 
 # Remove third-to-last line
