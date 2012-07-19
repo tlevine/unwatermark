@@ -2,7 +2,7 @@
 
 for file in /srv/www.fadelee.com/*.html
   do
-  cat "$file" | /srv/www.fadelee.com/unwatermark/tail-r.py | sed \'3c\
+  cat "$file" | /srv/www.fadelee.com/unwatermark/tail-r.py | sed '3c\
 <!-- Piwik -->\
 <script type="text/javascript">\
 var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.thomaslevine.com/" : "http://piwik.thomaslevine.com/");\
@@ -15,7 +15,7 @@ piwikTracker.enableLinkTracking();\
 } catch( err ) {}\
 </script><noscript><p><img src="http://piwik.thomaslevine.com/piwik.php?idsite=8" style="border:0" alt="" /></p></noscript>\
 <!-- End Piwik Tracking Code -->\
-\' | /srv/www.fadelee.com/unwatermark/tail-r.py > "$file".tmp
+' | /srv/www.fadelee.com/unwatermark/tail-r.py > "$file".tmp
   cat "$file".tmp > "$file"
   rm "$file".tmp
 done
