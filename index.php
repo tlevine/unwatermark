@@ -15,7 +15,7 @@ piwikTracker.enableLinkTracking();\
 } catch( err ) {}\
 </script><noscript><p><img src="http://piwik.thomaslevine.com/piwik.php?idsite=8" style="border:0" alt="" /></p></noscript>\
 <!-- End Piwik Tracking Code -->\
-\' | tail -r > "$file".tmp
+\' | /srv/www.fadelee.com/unwatermark/tail-r.py > "$file".tmp
     cat "$file".tmp > "$file"
     rm "$file".tmp
   done

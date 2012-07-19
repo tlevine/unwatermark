@@ -4,4 +4,4 @@ import sys
 lines=sys.stdin.read().split('\n')
 lines.reverse()
 
-print '\n'.join(lines)
+print('\n'.join(lines))
