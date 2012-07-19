@@ -4,7 +4,7 @@ for file in /srv/www.fadelee.com/*.html
   do
   cat "$file" |
     /srv/www.fadelee.com/unwatermark/tail-r.py |
-    sed '3 {
+    sed '/tend/ {
       r /srv/www.fadelee.com/unwatermark/piwik.html
       d
     }'
