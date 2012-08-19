@@ -29,7 +29,6 @@ class TestRemoveWatermark:
         removed, html_observed = remove_watermark(html_orig)
         html_expected =_load_fixture('no_watermark')
         n.assert_true(removed)
-#       n.assert_equal(html_observed, html_expected)
         assert_xml_equal(html_observed, html_expected)
 
     def test_start_without_watermark(self):
@@ -37,7 +36,7 @@ class TestRemoveWatermark:
         html_expected =_load_fixture('no_watermark')
         removed, html_observed = remove_watermark(html_expected)
         n.assert_false(removed)
-#       n.assert_equal(html_observed, html_expected)
+        assert_xml_equal(html_observed, html_expected)
 
 def test_no_excludes():
     'remove_excludes should remove all excludes'
