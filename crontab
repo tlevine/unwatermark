@@ -1,1 +1,1 @@
-*/2 * * * * python /srv/unwatermark/erase.py
+*/2 * * * * ps aux|grep -v grep|grep -E '^fadelee.* scp .*$' || python /srv/unwatermark/erase.py
