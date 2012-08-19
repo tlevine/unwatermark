@@ -72,8 +72,9 @@ def edit_files():
         if added_piwik_to_file:
             added_piwik.append(filename)
 
+        text_out = lxml.html.tostring(html)
         f = open(absolute_path, 'w')
-        f.write(lxml.html.tostring(html))
+        f.write(text_out)
         f.close()
 
     print 'Removed the watermark from these files:'
