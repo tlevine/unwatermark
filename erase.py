@@ -89,8 +89,8 @@ def http_headers():
     print '\n'
 
 def main():
+    os.system('cd /home/www.fadelee.com && git init')
     # Don't update before; this results in stupid backups
-    # os.system('cd /home/www.fadelee.com && git init')
     # os.system('cd /home/www.fadelee.com && git commit . -m new\ upload')
     edit_files()
     os.system('cd /home/www.fadelee.com && git commit . -m removed\ watermark')
