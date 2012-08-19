@@ -25,7 +25,7 @@ class Page:
         'remove_watermark should remove the watermark'
         html_orig = _load_fixture(self.page_name, 'has_watermark')
         removed, html_observed = remove_watermark(html_orig)
-        html_expected =_load_fixture('no_watermark')
+        html_expected =_load_fixture(self.page_name, 'no_watermark')
         n.assert_true(removed)
         assert_xml_equal(html_observed, html_expected)
 
@@ -48,7 +48,7 @@ class Page:
         'add_piwik should add the piwik stuff.'
         html_no_watermark =_load_fixture(self.page_name, 'no_watermark')
         added, html_observed = add_piwik(html_no_watermark)
-        html_expected =_load_fixture('no_watermark_yes_piwik')
+        html_expected =_load_fixture(self.page_name, 'no_watermark_yes_piwik')
         n.assert_true(added)
         n.assert_in(
             'http://piwik.thomaslevine.com/piwik.php?idsite=8',
