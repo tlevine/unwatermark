@@ -55,6 +55,12 @@ class Page:
             lxml.html.tostring( html_observed)
         )
 
-class TestDigitalArt(Page):
+class test_digital_art(Page):
     page_name = 'digital_art.html'
+
+class test_UntitledEssex174(Page):
+    page_name = 'UntitledEssex174.html'
+
+class test_pottery_mug_porcelain_bermuda_blue(Page):
+    page_name = 'pottery_mug_porcelain_bermuda_blue.html'
 
