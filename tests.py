@@ -35,12 +35,6 @@ class TestRemoveWatermark:
         n.assert_false(removed)
         assert_xml_equal(html_observed, html_expected)
 
-#def test_no_excludes():
-#    'remove_excludes should remove all excludes'
-#    html_observed = remove_excludes(html_orig)
-#    html_expected =_load_fixture('no_excludes')
-#    assert_xml_equal(html_observed, html_expected)
-
 class TestPiwik:
     def test_start_with_piwik(self):
         'add_piwik should do nothing if the piwik stuff is already there.'
