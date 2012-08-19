@@ -38,18 +38,22 @@ class TestRemoveWatermark:
         n.assert_false(removed)
         assert_xml_equal(html_observed, html_expected)
 
-def test_no_excludes():
-    'remove_excludes should remove all excludes'
-    html_observed = remove_excludes(html_orig)
-    html_expected =_load_fixture('no_excludes')
-    assert_xml_equal(html_observed, html_expected)
+#def test_no_excludes():
+#    'remove_excludes should remove all excludes'
+#    html_observed = remove_excludes(html_orig)
+#    html_expected =_load_fixture('no_excludes')
+#    assert_xml_equal(html_observed, html_expected)
 
-def test_piwik():
-    'add_piwik should add the piwik stuff.'
-    html_no_watermark =_load_fixture('no_excludes')
-    added, html_observed = add_piwik(html_no_watermark)
-    html_expected =_load_fixture('piwik')
-    n.assert_true(added)
-    assert_xml_equal(html_observed, html_expected)
+class TestPiwik:
+    def test_start_with_piwik(self):
+        pass
+
+    def test_start_without_piwik(self):
+        'add_piwik should add the piwik stuff.'
+        html_no_watermark =_load_fixture('no_watermark')
+        added, html_observed = add_piwik(html_no_watermark)
+        html_expected =_load_fixture('no_watermark_yes_piwik')
+        assert_xml_equal(html_observed, html_expected)
+        n.assert_true(added)
 
 
