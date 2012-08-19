@@ -42,14 +42,14 @@ def test_no_excludes():
     'remove_excludes should remove all excludes'
     html_observed = remove_excludes(html_orig)
     html_expected =_load_fixture('no_excludes')
-    n.assert_equal(html_observed, html_expected)
+    assert_xml_equal(html_observed, html_expected)
 
 def test_piwik():
     'add_piwik should add the piwik stuff.'
-    html_no_watermark =_load_fixture('no_watermark')
+    html_no_watermark =_load_fixture('no_excludes')
     added, html_observed = add_piwik(html_no_watermark)
     html_expected =_load_fixture('piwik')
     n.assert_true(added)
-    n.assert_equal(html_observed, html_expected)
+    assert_xml_equal(html_observed, html_expected)
 
 
