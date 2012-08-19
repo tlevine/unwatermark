@@ -94,6 +94,7 @@ def main():
     edit_files()
     os.system('cd /srv/www.fadelee.com && git commit . -m removed\ watermark')
 
-SITE_ROOT = os.path.join('srv', 'www.fadelee.com')
+# The only bit of configuration: Set this to the site's directory.
+SITE_ROOT = os.path.join('/', 'srv', 'www.fadelee.com')
 if __name__ == '__main__':
     main()
