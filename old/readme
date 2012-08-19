@@ -1,3 +1,0 @@
-Remove watermark from Yahoo sitebuilder. Put this in the same directory as
-your sitebuilder files, then run `unwatermark`. So if your sitebuilder
-files are in your web root, go to `http://example.com/unwatermark`.
