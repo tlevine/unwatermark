@@ -2,6 +2,8 @@
 import os
 import nose.tools as n
 import lxml.html
+from doctest import Example
+from lxml.doctestcompare import LXMLOutputChecker
 from erase import remove_excludes, remove_watermark, add_piwik
 
 def assert_xml_equal(got, want):
