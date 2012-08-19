@@ -90,12 +90,12 @@ def cgi_script():
     main()
 
 def main():
-    os.system('cd /srv/www.fadelee.com && git init')
-    os.system('cd /srv/www.fadelee.com && git commit . -m new\ upload')
+    os.system('cd /home/www.fadelee.com && git init')
+    os.system('cd /home/www.fadelee.com && git commit . -m new\ upload')
     edit_files()
-    os.system('cd /srv/www.fadelee.com && git commit . -m removed\ watermark')
+    os.system('cd /home/www.fadelee.com && git commit . -m removed\ watermark')
 
 # The only bit of configuration: Set this to the site's directory.
-SITE_ROOT = os.path.join('/', 'srv', 'www.fadelee.com')
+SITE_ROOT = os.path.join('/', 'home', 'www.fadelee.com')
 if __name__ == '__main__':
     main()

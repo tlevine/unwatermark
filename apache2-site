@@ -2,8 +2,8 @@
 	ServerAdmin occurrence@thomaslevine.com
 	ServerName www.fadelee.com
 
-	DocumentRoot /srv/www.fadelee.com
-	<Directory "/srv/www.fadelee.com/">
+	DocumentRoot /home/www.fadelee.com
+	<Directory "/home/www.fadelee.com/">
 		Order allow,deny
 		Allow from all
 	</Directory>
