@@ -83,11 +83,10 @@ def edit_files():
     print 'Added the piwik analytics snippet to these files:'
     print '\n  '.join(added_piwik)
 
-def cgi_script():
+def http_headers():
     print 'HTTP/1.1 200 OK'
     print 'Content-Type: text/plain'
     print '\n'
-    main()
 
 def main():
     os.system('cd /home/www.fadelee.com && git init')
@@ -98,4 +97,6 @@ def main():
 # The only bit of configuration: Set this to the site's directory.
 SITE_ROOT = os.path.join('/', 'home', 'www.fadelee.com')
 if __name__ == '__main__':
+    if 'QUERY_STRING' in os.environ:
+        http_headers()
     main()
