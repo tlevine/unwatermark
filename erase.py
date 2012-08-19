@@ -1,3 +1,4 @@
+import os
 import lxml.html
 
 # Single xpath helper
@@ -81,10 +82,13 @@ def edit_files():
     print 'Added the piwik analytics snippet to these files:'
     print '\n  '.join(added_piwik)
 
-def main():
+def cgi_script():
     print 'HTTP/1.1 200 OK'
     print 'Content-Type: text/plain'
     print '\n'
+    main()
+
+def main():
     os.system('cd /srv/www.fadelee.com && git init')
     os.system('cd /srv/www.fadelee.com && git commit . -m new\ upload')
     edit_files()
