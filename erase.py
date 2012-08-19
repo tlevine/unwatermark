@@ -44,12 +44,12 @@ piwikTracker.enableLinkTracking();
 def add_piwik(html):
     "Add Piwik if it isn't already there."
     if html.xpath0('//img[@src="http://piwik.thomaslevine.com/piwik.php?idsite=8"]') == None:
-        # Already added
-        added = False
-    else:
         body = html.xpath0('//body')
         body.append(PIWIK)
         added = True
+    else:
+        # Already added
+        added = False
 
     return added, html
 

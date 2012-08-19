@@ -46,14 +46,22 @@ class TestRemoveWatermark:
 
 class TestPiwik:
     def test_start_with_piwik(self):
-        pass
+        'add_piwik should do nothing if the piwik stuff is already there.'
+        html_no_watermark_yes_piwik =_load_fixture('no_watermark_yes_piwik')
+        added, html_observed = add_piwik(html_no_watermark_yes_piwik)
+        html_expected =_load_fixture('no_watermark_yes_piwik')
+        n.assert_false(added)
+        assert_xml_equal(html_observed, html_expected)
 
     def test_start_without_piwik(self):
         'add_piwik should add the piwik stuff.'
         html_no_watermark =_load_fixture('no_watermark')
         added, html_observed = add_piwik(html_no_watermark)
         html_expected =_load_fixture('no_watermark_yes_piwik')
-        assert_xml_equal(html_observed, html_expected)
         n.assert_true(added)
+        n.assert_in(
+            'http://piwik.thomaslevine.com/piwik.php?idsite=8',
+            lxml.html.tostring( html_observed)
+        )
 
 
