@@ -18,11 +18,10 @@ def _load_fixture(page_name, fixture_name):
     f.close()
     return html
 
-html_orig = _load_fixture('has_watermark')
-
-class TestRemoveWatermark:
+class Page:
     def test_start_with_watermark(self):
         'remove_watermark should remove the watermark'
+        html_orig = _load_fixture(self.page_name, 'has_watermark')
         removed, html_observed = remove_watermark(html_orig)
         html_expected =_load_fixture('no_watermark')
         n.assert_true(removed)
@@ -30,23 +29,22 @@ class TestRemoveWatermark:
 
     def test_start_without_watermark(self):
         'remove_watermark should do nothing if the watermark isn\'t there.'
-        html_expected =_load_fixture('no_watermark')
+        html_expected =_load_fixture(self.page_name, 'no_watermark')
         removed, html_observed = remove_watermark(html_expected)
         n.assert_false(removed)
         assert_xml_equal(html_observed, html_expected)
 
-class TestPiwik:
     def test_start_with_piwik(self):
         'add_piwik should do nothing if the piwik stuff is already there.'
-        html_no_watermark_yes_piwik =_load_fixture('no_watermark_yes_piwik')
+        html_no_watermark_yes_piwik =_load_fixture(self.page_name, 'no_watermark_yes_piwik')
         added, html_observed = add_piwik(html_no_watermark_yes_piwik)
-        html_expected =_load_fixture('no_watermark_yes_piwik')
+        html_expected =_load_fixture(self.page_name, 'no_watermark_yes_piwik')
         n.assert_false(added)
         assert_xml_equal(html_observed, html_expected)
 
     def test_start_without_piwik(self):
         'add_piwik should add the piwik stuff.'
-        html_no_watermark =_load_fixture('no_watermark')
+        html_no_watermark =_load_fixture(self.page_name, 'no_watermark')
         added, html_observed = add_piwik(html_no_watermark)
         html_expected =_load_fixture('no_watermark_yes_piwik')
         n.assert_true(added)
@@ -55,4 +53,6 @@ class TestPiwik:
             lxml.html.tostring( html_observed)
         )
 
+class TestDigitalArt(Page):
+    page_name = 'digital_art.html'
 
