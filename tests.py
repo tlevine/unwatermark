@@ -4,9 +4,6 @@ import nose.tools as n
 import lxml.html
 from erase import remove_excludes, remove_watermark, add_piwik
 
-from doctest import Example
-from lxml.doctestcompare import LXMLOutputChecker
-
 def assert_xml_equal(got, want):
     got = lxml.html.tostring(got)
     want = lxml.html.tostring(want)
@@ -15,8 +12,8 @@ def assert_xml_equal(got, want):
         message = checker.output_difference(Example("", want), got, 0)
         raise AssertionError(message)
 
-def _load_fixture(name):
-    f = open(os.path.join('fixtures', name + '.html'))
+def _load_fixture(page_name, fixture_name):
+    f = open(os.path.join('fixtures', page_name, fixture_name + '.html'))
     html = lxml.html.fromstring(f.read())
     f.close()
     return html
