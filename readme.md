@@ -9,7 +9,7 @@ While it's at it, it adds Piwik tracking (you'll need to
 change the snippet for different sites) and commits to a
 git repository.
 
-It runs every two minutes, but not when sftp is running.
-But I do forsee problems if it happens to run when sftp
-is running. But those should be fixed by uploading the
-site again.
+If you use the included crontab, erase.py will runs every
+two minutes, but not when sftp is running. I do forsee
+problems if it happens to run when sftp is running, but
+those should be fixed by uploading the site again.
